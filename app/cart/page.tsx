@@ -26,7 +26,7 @@ export default function CartPage(){
      </div>
     </article>
    })}</div>
-   <aside className="cart-summary"><p className="eyebrow">SUMMARY</p><div><span>Subtotal</span><strong>{money(total)}</strong></div><div><span>Shipping</span><span>Calculated at checkout</span></div><div className="cart-total"><span>Total</span><strong>{money(total)}</strong></div><button className="primary-wide" onClick={()=>alert("Checkout will be connected in the next phase.")}>PROCEED TO CHECKOUT <span>↗</span></button><a className="continue-shopping" href="/shop">Continue shopping</a></aside>
+   <aside className="cart-summary"><p className="eyebrow">SUMMARY</p><div><span>Subtotal</span><strong>{money(total)}</strong></div><div><span>Shipping</span><span>Calculated at checkout</span></div><div className="cart-total"><span>Total</span><strong>{money(total)}</strong></div><button className="primary-wide" onClick={()=>window.location.href="/checkout"}>PROCEED TO CHECKOUT <span>↗</span></button><a className="continue-shopping" href="/shop">Continue shopping</a></aside>
   </section>
  </main></>;
 }

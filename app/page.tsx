@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import SiteHeader from "@/components/site-header";
 import ProductCard from "@/components/product-card";
+import ImmersiveHero from "@/components/immersive-hero";
 import { products } from "@/lib/store";
 
 const collections = [
@@ -32,41 +33,7 @@ export default function Home() {
     <main className="home-new">
       <SiteHeader />
 
-      <section className="luxury-hero" ref={heroRef}>
-        <div className="hero-grain" />
-        <div className="hero-side-label">PROTOFLOW / 001 — OBJECTS OF PRESENCE</div>
-        <div className="hero-index">01<br /><span>/</span><br />04</div>
-
-        <div className="hero-editorial">
-          <p className="hero-kicker">THE SCULPTURE EDIT · 2026</p>
-          <h1>Objects<br /><i>of devotion.</i></h1>
-          <p className="hero-lead">Sculptural forms for spaces that deserve more than decoration.</p>
-          <a className="hero-cta" href="/collections">
-            <span>Enter the collection</span><b>↗</b>
-          </a>
-        </div>
-
-        <div className="hero-object">
-          <div className="object-light" />
-          <div className="hero-sculpture">
-            <div className="hs-head" />
-            <div className="hs-neck" />
-            <div className="hs-body" />
-            <div className="hs-base" />
-          </div>
-          <div className="hero-pedestal" />
-          <div className="hero-object-caption">
-            <span>01 / FEATURED FORM</span>
-            <strong>The Meditative One</strong>
-          </div>
-        </div>
-
-        <div className="hero-bottom">
-          <span>HAND-FINISHED FORMS</span>
-          <span>SCROLL TO EXPLORE ↓</span>
-          <span>MADE TO STAY</span>
-        </div>
-      </section>
+      <ImmersiveHero />
 
       <section className="statement-section">
         <div className="statement-number">02</div>

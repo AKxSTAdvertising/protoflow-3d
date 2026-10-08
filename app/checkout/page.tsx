@@ -1,0 +1,14 @@
+"use client";
+import {FormEvent,useState} from "react";
+import {useRouter} from "next/navigation";
+import {useCart} from "@/components/cart-provider";
+import {getProduct,money,priceForSize} from "@/lib/store";
+export default function CheckoutPage(){
+ const{items,clearCart}=useCart(); const router=useRouter(); const[done,setDone]=useState(false); const[order,setOrder]=useState("");
+ const[form,setForm]=useState({name:"",email:"",phone:"",address:"",city:"",state:"",pincode:""});
+ const subtotal=items.reduce((s,i)=>{const p=getProduct(i.slug);return s+(p?priceForSize(p,i.size)*i.quantity:0)},0);
+ const submit=(e:FormEvent)=>{e.preventDefault();const id="PF3D-"+Date.now().toString().slice(-6);setOrder(id);setDone(true);clearCart();};
+ if(done)return <main className="checkout-page"><div className="checkout-success"><span className="eyebrow">ORDER CONFIRMED</span><h1>Thank you, {form.name}.</h1><p>Your Protoflow 3D order <b>{order}</b> has been received.</p><p className="muted">We’ll contact you on {form.phone} to confirm the order and delivery details.</p><button onClick={()=>router.push("/shop")}>CONTINUE SHOPPING</button></div></main>;
+ if(!items.length)return <main className="checkout-page"><div className="checkout-success"><span className="eyebrow">YOUR BAG IS EMPTY</span><h1>Nothing to checkout.</h1><button onClick={()=>router.push("/shop")}>BROWSE COLLECTION</button></div></main>;
+ return <main className="checkout-page"><div className="checkout-head"><a href="/cart">← BACK TO BAG</a><span>PROTOFLOW 3D</span></div><div className="checkout-grid"><form onSubmit={submit} className="checkout-form"><p className="eyebrow">DELIVERY DETAILS</p><h1>Complete your order.</h1>{[["name","Full name","text"],["email","Email address","email"],["phone","Phone number","tel"],["address","Delivery address","text"],["city","City","text"],["state","State","text"],["pincode","PIN code","text"]].map(([key,label,type])=><label key={key}>{label}<input required type={type} value={(form as any)[key]} onChange={e=>setForm({...form,[key]:e.target.value})}/></label>)}<button className="place-order" type="submit">PLACE ORDER · {money(subtotal)}</button></form><aside className="checkout-summary"><p className="eyebrow">ORDER SUMMARY</p>{items.map(i=>{const p=getProduct(i.slug);if(!p)return null;return <div className="summary-item" key={i.slug+i.size}><div><b>{p.name}</b><span>{i.size}" · Qty {i.quantity}</span></div><strong>{money(priceForSize(p,i.size)*i.quantity)}</strong></div>})}<div className="summary-total"><span>TOTAL</span><strong>{money(subtotal)}</strong></div><small>Free shipping during the launch phase.</small></aside></div></main>
+}

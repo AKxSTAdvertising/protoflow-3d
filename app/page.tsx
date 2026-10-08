@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+
 import SiteHeader from "@/components/site-header";
 import ProductCard from "@/components/product-card";
 import ImmersiveHero from "@/components/immersive-hero";
@@ -14,19 +14,6 @@ const collections = [
 ];
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - .5) * 2;
-      const y = (e.clientY / window.innerHeight - .5) * 2;
-      heroRef.current?.style.setProperty("--mx", x.toFixed(3));
-      heroRef.current?.style.setProperty("--my", y.toFixed(3));
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
   const featured = products.filter((p) => p.featured).slice(0, 6);
 
   return (

@@ -11,14 +11,7 @@ const collections = [
   { no: "04", name: "Home Décor", desc: "Objects designed to become focal points." },
 ];
 
-const featured = [
-  { name: "The Meditative One", type: "Buddha · Stone Finish", price: "₹2,850", shape: "figure-a" },
-  { name: "Eternal Gaze", type: "Devotional · Antique Finish", price: "₹3,450", shape: "figure-b" },
-  { name: "The Union", type: "Couple Sculpture · Ivory", price: "₹2,950", shape: "figure-c" },
-  { name: "Arc of Silence", type: "Modern Art · Bronze", price: "₹4,200", shape: "figure-d" },
-  { name: "Temple Form", type: "Decorative · Sandstone", price: "₹2,250", shape: "figure-e" },
-  { name: "The Guardian", type: "Devotional · Charcoal", price: "₹3,900", shape: "figure-f" },
-];
+
 
 export default function Home() {
   const stageRef = useRef<HTMLDivElement>(null);

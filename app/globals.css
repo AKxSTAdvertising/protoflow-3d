@@ -214,3 +214,12 @@ button { font: inherit; color: inherit; }
 .continue-shopping{display:block;text-align:center;margin-top:20px;font:9px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.1em;text-decoration:underline;text-underline-offset:5px}
 @media(max-width:900px){.cart-layout{grid-template-columns:1fr}.cart-summary{position:static}.cart-heading{align-items:flex-start;gap:25px;flex-direction:column}}
 @media(max-width:560px){.cart-page{padding:70px 5vw 100px}.cart-item{grid-template-columns:105px 1fr;gap:15px}.cart-art{height:145px}.cart-art .mini-sculpture{transform:scale(.43)}.cart-item-info h2{font-size:22px}.quantity{margin-top:18px}.cart-summary{padding:22px}}
+
+/* Homepage product rail */
+.homepage-product-row{grid-template-columns:repeat(6,minmax(205px,1fr));overflow-x:auto;scrollbar-width:none;padding-bottom:12px}
+.homepage-product-row::-webkit-scrollbar{display:none}
+.homepage-product-row .product-visual{height:390px}
+.homepage-product-row .product-meta h3{font-size:19px}
+.homepage-product-row .product-meta p{font-size:9px}
+@media(max-width:1200px){.homepage-product-row{grid-template-columns:repeat(4,minmax(220px,1fr))}}
+@media(max-width:760px){.homepage-product-row{grid-template-columns:repeat(6,78vw)}.homepage-product-row .product-visual{height:410px}}

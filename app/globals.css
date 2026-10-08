@@ -359,3 +359,43 @@ button { font: inherit; color: inherit; }
  .experience-text{padding:75px 8vw}.experience-text h2{font-size:55px}
  .final-cta{padding:110px 6vw}.final-cta h2{font-size:67px}
 }
+
+
+/* =========================================================
+   IMMERSIVE WEBGL HERO — reference-inspired
+   ========================================================= */
+.immersive-hero{height:calc(100vh - 88px);min-height:720px;position:relative;overflow:hidden;background:#070706;color:#f3eee5;isolation:isolate}
+.immersive-canvas{position:absolute;inset:0;z-index:1}
+.immersive-canvas canvas{width:100%!important;height:100%!important}
+.immersive-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at 55% 45%,transparent 15%,rgba(0,0,0,.08) 45%,rgba(0,0,0,.8) 100%)}
+.immersive-vignette:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050504 0%,transparent 32%,transparent 72%,#050504 100%);opacity:.72}
+.immersive-topline{position:absolute;z-index:5;top:23px;left:4vw;right:4vw;display:flex;justify-content:space-between;font:8px "DM Mono";letter-spacing:.18em;color:#aaa094}
+.immersive-copy{position:absolute;z-index:5;left:8vw;top:50%;transform:translateY(-48%);pointer-events:none}
+.immersive-copy>p{font:9px "DM Mono";letter-spacing:.2em;color:#b1976a;margin:0 0 25px}
+.immersive-copy h1{font:500 clamp(80px,11vw,165px)/.78 "Playfair Display";letter-spacing:-.075em;margin:0;text-shadow:0 10px 35px #0008}
+.immersive-copy h1 i{font-weight:500;color:#b69560}
+.immersive-bottom-copy{display:flex;gap:35px;margin-top:38px;font:8px "DM Mono";letter-spacing:.16em;color:#90877c}
+.immersive-ring{position:absolute;z-index:3;width:min(58vw,760px);aspect-ratio:1;border:1px solid rgba(192,157,101,.17);border-radius:50%;left:52%;top:48%;transform:translate(-50%,-50%);pointer-events:none;box-shadow:0 0 90px #a67c3b0c,inset 0 0 80px #a67c3b08}
+.immersive-ring:before,.immersive-ring:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(192,157,101,.11)}
+.immersive-ring:before{inset:8%}.immersive-ring:after{inset:22%}
+.immersive-meta{position:absolute;z-index:6;right:5vw;bottom:18%;display:flex;align-items:center;gap:25px;font:8px "DM Mono";letter-spacing:.16em;color:#b5a99b}
+.immersive-meta b{font-size:16px;font-weight:400;color:#b69560}
+.immersive-enter{position:absolute;z-index:7;right:7vw;bottom:8%;display:flex;align-items:center;gap:32px;padding:17px 19px;border:1px solid #bca47d66;background:#0d0c0acc;color:#eee7db;font:8px "DM Mono";letter-spacing:.15em;transition:.35s}
+.immersive-enter b{font:18px Manrope;font-weight:300;color:#c4a06b}
+.immersive-enter:hover{background:#b49562;color:#0b0a08;border-color:#b49562;transform:translateY(-3px)}
+.immersive-scroll{position:absolute;z-index:6;left:4vw;bottom:8%;display:flex;align-items:center;gap:15px;color:#81786d;font:7px "DM Mono";letter-spacing:.18em}
+.immersive-scroll i{display:block;width:48px;height:1px;background:#8f806d;position:relative}
+.immersive-scroll i:after{content:"";position:absolute;right:0;top:-2px;width:4px;height:4px;border-radius:50%;background:#c09a62}
+
+@media(max-width:760px){
+ .immersive-hero{height:calc(100svh - 76px);min-height:720px}
+ .immersive-topline span:nth-child(2){display:none}
+ .immersive-topline{top:18px;left:5vw;right:5vw}
+ .immersive-copy{left:7vw;top:32%;transform:none}
+ .immersive-copy h1{font-size:75px}
+ .immersive-bottom-copy{gap:14px;flex-direction:column;margin-top:28px}
+ .immersive-ring{width:125vw;left:58%;top:57%}
+ .immersive-meta{right:6vw;bottom:19%;font-size:7px}
+ .immersive-enter{right:6vw;bottom:8%;padding:15px 16px}
+ .immersive-scroll{left:6vw;bottom:9%}
+}

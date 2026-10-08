@@ -1,34 +1,30 @@
-export type Product={slug:string;name:string;category:string;collection:string;finish:string;description:string;price:number;perInch:number;sizes:number[];shape:string;model?:string;featured?:boolean;newArrival?:boolean;bestSeller?:boolean};
+export type Product={slug:string;name:string;category:string;collection:string;finish:string;description:string;price:number;perInch:number;sizes:number[];shape:string;model?:string;featured?:boolean;newArrival?:boolean;bestSeller?:boolean;images?:string[]};
 export type Collection={slug:string;number:string;name:string;short:string;description:string;shape:string};
-
 export const collections:Collection[]=[
 {slug:"divine-forms",number:"01",name:"Divine Forms",short:"Sacred sculptures with quiet presence.",description:"Devotional forms created to bring stillness, character and a sense of ritual into considered spaces.",shape:"form-divine"},
 {slug:"buddha",number:"02",name:"Buddha",short:"Stillness, balance and contemplative form.",description:"Meditative sculptures inspired by calm, proportion and timeless presence.",shape:"form-buddha"},
 {slug:"modern-art",number:"03",name:"Modern Art",short:"Sculptural pieces for contemporary spaces.",description:"Abstract and architectural forms for interiors that speak in a quieter visual language.",shape:"form-modern"},
 {slug:"home-decor",number:"04",name:"Home Décor",short:"Objects designed to become focal points.",description:"Decorative objects with sculptural character, designed for shelves, consoles and living spaces.",shape:"form-decor"}];
 
-const sizes=[3,4,5,6,7,8,9,10,11,12];
-const p=(slug:string,name:string,category:string,collection:string,finish:string,description:string,shape:string,featured?:boolean,newArrival?:boolean,bestSeller?:boolean):Product=>({slug,name,category,collection,finish,description,price:1499,perInch:100,sizes,shape,featured,newArrival,bestSeller});
-
+// Demo catalog: easy to replace in bulk later. Prices are intentionally kept around ₹1,500 for the first launch catalog.
 export const products:Product[]=[
-p("the-meditative-one","The Meditative One","Buddha","buddha","Warm Stone","A calm seated form with balanced proportions, designed for quiet corners, consoles and personal spaces.","figure-a",true,false,true),
-p("eternal-gaze","Eternal Gaze","Devotional","divine-forms","Antique Sand","A refined devotional portrait with softened edges and a timeless antique surface.","figure-b",true,true),
-p("the-union","The Union","Couple Sculpture","divine-forms","Ivory Stone","Two sculptural forms meet as one continuous silhouette, expressing companionship and balance.","figure-c",true),
-p("arc-of-silence","Arc of Silence","Modern Art","modern-art","Aged Bronze","An architectural gesture translated into a compact sculptural statement for contemporary interiors.","figure-d",true),
-p("temple-form","Temple Form","Decorative","home-decor","Sandstone","A compact temple-inspired object with tactile stone character for shelves and consoles.","figure-e",true,true),
-p("the-guardian","The Guardian","Devotional","divine-forms","Charcoal Stone","A grounded guardian silhouette with a deep ceremonial finish and quiet visual weight.","figure-f",true,false,true),
-p("quiet-lotus","Quiet Lotus","Buddha","buddha","Natural Stone","A lotus-inspired meditation form with soft geometry and an understated gallery finish.","figure-a",false,true),
-p("monolith-i","Monolith I","Modern Art","modern-art","Graphite Stone","A minimal vertical study with architectural proportions for modern rooms and workspaces.","figure-d"),
-p("the-observer","The Observer","Home Décor","home-decor","Travertine","A small-scale sculptural object with a strong silhouette and natural stone character.","figure-e",false,false,true),
-p("sacred-profile","Sacred Profile","Devotional","divine-forms","Ivory Stone","A graceful profile study designed to sit naturally within both traditional and contemporary interiors.","figure-b",false,true),
-p("balance-study","Balance Study","Modern Art","modern-art","Aged Bronze","Interlocking volumes create a sense of movement while keeping a grounded gallery-like silhouette.","figure-c"),
-p("ritual-vessel","Ritual Vessel","Home Décor","home-decor","Stone Grey","A sculptural vessel where useful object and decorative form become one.","figure-e"),
-p("lotus-pedestal","Lotus Pedestal","Buddha","buddha","Pearl Stone","A layered lotus pedestal with a serene silhouette, made to frame a meditation space or altar.","figure-a",false,true),
-p("sun-temple","Sun Temple","Decorative","home-decor","Champagne Stone","A compact geometric shrine-inspired form that catches light beautifully on a console or shelf.","figure-d",false,true),
-p("inner-peace","Inner Peace","Buddha","buddha","Soft Ivory","A minimalist meditative bust focused on expression, proportion and a peaceful presence.","figure-b",true,false,true)
+{slug:"the-meditative-one",name:"The Meditative One",category:"Buddha",collection:"buddha",finish:"Warm Stone",description:"A calm seated form built around symmetry, stillness and a timeless stone character.",price:1499,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-a",featured:true,bestSeller:true},
+{slug:"eternal-gaze",name:"Eternal Gaze",category:"Devotional",collection:"divine-forms",finish:"Antique Ivory",description:"A refined devotional portrait with softened edges and a quiet antique surface.",price:1599,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-b",featured:true,newArrival:true},
+{slug:"the-union",name:"The Union",category:"Couple Sculpture",collection:"divine-forms",finish:"Ivory Stone",description:"Two flowing forms meet as one continuous silhouette, representing companionship and balance.",price:1699,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-c",featured:true},
+{slug:"arc-of-silence",name:"Arc of Silence",category:"Modern Art",collection:"modern-art",finish:"Antique Bronze",description:"A sculptural architectural gesture designed to become a restrained focal point.",price:1799,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-d",featured:true},
+{slug:"temple-form",name:"Temple Form",category:"Decorative",collection:"home-decor",finish:"Sandstone",description:"A compact decorative form with a tactile sandstone character for consoles and shelves.",price:1399,perInch:125,sizes:[4,5,6,7,8,9,10],shape:"figure-e",featured:true,newArrival:true},
+{slug:"the-guardian",name:"The Guardian",category:"Devotional",collection:"divine-forms",finish:"Charcoal Stone",description:"A grounded guardian silhouette with a deep ceremonial character and sculptural weight.",price:1599,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-f",featured:true,bestSeller:true},
+{slug:"quiet-lotus",name:"Quiet Lotus",category:"Buddha",collection:"buddha",finish:"Natural Stone",description:"A lotus-inspired form with soft geometry and an understated gallery finish.",price:1299,perInch:125,sizes:[4,5,6,7,8,9,10],shape:"figure-a",newArrival:true},
+{slug:"monolith-i",name:"Monolith I",category:"Modern Art",collection:"modern-art",finish:"Graphite",description:"A minimal vertical study for contemporary rooms and architectural interiors.",price:1899,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-d"},
+{slug:"the-observer",name:"The Observer",category:"Home Décor",collection:"home-decor",finish:"Travertine",description:"A small sculptural object with a strong silhouette and natural stone character.",price:1199,perInch:125,sizes:[4,5,6,7,8,9],shape:"figure-e",bestSeller:true},
+{slug:"sacred-profile",name:"Sacred Profile",category:"Devotional",collection:"divine-forms",finish:"Ivory Stone",description:"A refined profile study designed for both traditional and contemporary interiors.",price:1499,perInch:150,sizes:[4,5,6,7,8,9,10,11],shape:"figure-b",newArrival:true},
+{slug:"balance-study",name:"Balance Study",category:"Modern Art",collection:"modern-art",finish:"Aged Bronze",description:"Interlocking volumes create movement while maintaining a grounded gallery silhouette.",price:1749,perInch:150,sizes:[4,5,6,7,8,9,10,11,12],shape:"figure-c"},
+{slug:"ritual-vessel",name:"Ritual Vessel",category:"Home Décor",collection:"home-decor",finish:"Stone Grey",description:"A sculptural vessel where useful object and decorative form become one.",price:1349,perInch:125,sizes:[4,5,6,7,8,9,10],shape:"figure-e"},
+{slug:"lotus-awakening",name:"Lotus Awakening",category:"Buddha",collection:"buddha",finish:"Pearl Stone",description:"A serene lotus composition with a soft silhouette made for quiet corners.",price:1499,perInch:125,sizes:[4,5,6,7,8,9,10],shape:"figure-a",featured:true},
+{slug:"sacred-flame",name:"Sacred Flame",category:"Devotional",collection:"divine-forms",finish:"Burnished Gold",description:"A vertical devotional form inspired by the upward movement of a ceremonial flame.",price:1649,perInch:150,sizes:[4,5,6,7,8,9,10,11],shape:"figure-f",newArrival:true},
+{slug:"orbital-form",name:"Orbital Form",category:"Modern Art",collection:"modern-art",finish:"Stone Bronze",description:"A balanced abstract form designed as a conversation piece for modern interiors.",price:1549,perInch:150,sizes:[4,5,6,7,8,9,10,11],shape:"figure-d",featured:true}
 ];
-
 export const money=(v:number)=>new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(v);
-export const priceForSize=(product:Product,size:number)=>product.price+Math.max(0,size-product.sizes[0])*product.perInch;
+export const priceForSize=(p:Product,s:number)=>p.price+Math.max(0,s-p.sizes[0])*p.perInch;
 export const getCollection=(slug:string)=>collections.find(x=>x.slug===slug);
 export const getProduct=(slug:string)=>products.find(x=>x.slug===slug);

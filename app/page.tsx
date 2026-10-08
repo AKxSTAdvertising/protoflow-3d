@@ -5,10 +5,10 @@ import ProductCard from "@/components/product-card";
 import { products } from "@/lib/store";
 
 const collections = [
-  { no: "01", name: "Divine Forms", desc: "Sacred sculptures with quiet presence." },
-  { no: "02", name: "Buddha", desc: "Stillness, balance and contemplative form." },
-  { no: "03", name: "Modern Art", desc: "Sculptural pieces for contemporary spaces." },
-  { no: "04", name: "Home Décor", desc: "Objects designed to become focal points." },
+  { slug: "divine-forms", no: "01", name: "Divine Forms", desc: "Sacred sculptures with quiet presence." },
+  { slug: "buddha", no: "02", name: "Buddha", desc: "Stillness, balance and contemplative form." },
+  { slug: "modern-art", no: "03", name: "Modern Art", desc: "Sculptural pieces for contemporary spaces." },
+  { slug: "home-decor", no: "04", name: "Home Décor", desc: "Objects designed to become focal points." },
 ];
 
 
@@ -136,7 +136,7 @@ export default function Home() {
           {products.filter((product) => product.featured).slice(0, 6).map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
-        </div>        </div>
+        </div>
       </section>
 
       <section className="experience" id="story">

@@ -184,3 +184,33 @@ button { font: inherit; color: inherit; }
 
 /* Real-time 3D viewer */
 .viewer-3d{background:#d5ccbd}.canvas-shell{position:absolute;inset:0}.viewer-3d canvas{width:100%!important;height:100%!important;display:block}.viewer-3d .viewer-hint{z-index:4;background:#eee8ddcc;padding:7px 11px;border-radius:20px}.viewer-zoom{position:absolute;z-index:5;right:18px;bottom:18px;width:38px;height:38px;border:1px solid #62594d66;background:#eee8ddcc;font:18px "DM Mono",monospace;cursor:pointer}.viewer-3d.zoomed canvas{transform:scale(1.12);transition:transform .5s ease}.viewer-3d .viewer-label{z-index:4}
+
+/* Cart + commerce interactions */
+.size-picker button.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
+.product-actions{max-width:520px}
+.cart-page{max-width:1480px;margin:auto;padding:105px 5vw 150px}
+.cart-heading{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:50px}
+.cart-heading h1{font:500 clamp(52px,6vw,88px)/.94 "Playfair Display",serif;letter-spacing:-.055em;margin:0}
+.cart-clear{background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 5px;font:9px "DM Mono",monospace;letter-spacing:.12em;cursor:pointer}
+.cart-layout{display:grid;grid-template-columns:1.45fr .55fr;gap:70px;padding-top:45px}
+.cart-list{display:flex;flex-direction:column}
+.cart-item{display:grid;grid-template-columns:210px 1fr;gap:28px;padding:25px 0;border-bottom:1px solid var(--line)}
+.cart-art{height:230px;background:#eeeae2;display:grid;place-items:center;overflow:hidden}
+.cart-art .mini-sculpture{transform:scale(.7)}
+.cart-item-info{position:relative;padding:5px 0}
+.cart-item-info h2{font:500 30px/1 "Playfair Display",serif;margin:4px 0 12px}
+.cart-item-info h2 a{color:inherit}
+.cart-item-info>span{font:9px "DM Mono",monospace;color:var(--muted)}
+.cart-item-info>strong{display:block;font:13px "DM Mono",monospace;font-weight:400;margin-top:25px}
+.quantity{display:flex;align-items:center;gap:0;margin-top:25px}
+.quantity button{width:32px;height:32px;border:1px solid var(--line);background:transparent;cursor:pointer}
+.quantity span{width:35px;text-align:center;font:10px "DM Mono",monospace}
+.quantity .remove{width:auto;margin-left:15px;border:0;border-bottom:1px solid var(--ink);font:8px "DM Mono",monospace;letter-spacing:.1em}
+.cart-summary{align-self:start;background:var(--ivory);padding:30px;position:sticky;top:120px}
+.cart-summary>div{display:flex;justify-content:space-between;gap:25px;padding:16px 0;border-bottom:1px solid var(--line);font-size:11px}
+.cart-summary>div strong,.cart-summary .cart-total strong{font:12px "DM Mono",monospace;font-weight:400}
+.cart-summary .cart-total{border-bottom:0;padding:25px 0}
+.cart-summary .primary-wide{margin-top:10px}
+.continue-shopping{display:block;text-align:center;margin-top:20px;font:9px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.1em;text-decoration:underline;text-underline-offset:5px}
+@media(max-width:900px){.cart-layout{grid-template-columns:1fr}.cart-summary{position:static}.cart-heading{align-items:flex-start;gap:25px;flex-direction:column}}
+@media(max-width:560px){.cart-page{padding:70px 5vw 100px}.cart-item{grid-template-columns:105px 1fr;gap:15px}.cart-art{height:145px}.cart-art .mini-sculpture{transform:scale(.43)}.cart-item-info h2{font-size:22px}.quantity{margin-top:18px}.cart-summary{padding:22px}}

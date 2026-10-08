@@ -1,4 +1,4 @@
-export type Product={slug:string;name:string;category:string;collection:string;finish:string;description:string;price:number;perInch:number;sizes:number[];shape:string;featured?:boolean;newArrival?:boolean;bestSeller?:boolean};
+export type Product={slug:string;name:string;category:string;collection:string;finish:string;description:string;price:number;perInch:number;sizes:number[];shape:string;model?:string;featured?:boolean;newArrival?:boolean;bestSeller?:boolean};
 export type Collection={slug:string;number:string;name:string;short:string;description:string;shape:string};
 export const collections:Collection[]=[
 {slug:"divine-forms",number:"01",name:"Divine Forms",short:"Sacred sculptures with quiet presence.",description:"Devotional forms created to bring stillness, character and a sense of ritual into considered spaces.",shape:"form-divine"},

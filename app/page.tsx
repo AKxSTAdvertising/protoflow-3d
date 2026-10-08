@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import ProductCard from "@/components/product-card";
+import { products } from "@/lib/store";
 
 const collections = [
   { no: "01", name: "Divine Forms", desc: "Sacred sculptures with quiet presence." },
@@ -19,7 +21,6 @@ const featured = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,25 +43,9 @@ export default function Home() {
       <div className="announcement">HAND-FINISHED FORMS · MADE TO STAY</div>
 
       <header className="nav">
-        <a className="wordmark" href="/" aria-label="Protoflow 3D home">
-          <span>PROTOFLOW</span>
-          <b>3D</b>
-        </a>
-
-        <nav className={menuOpen ? "nav-links open" : "nav-links"}>
-          <a href="#collections" onClick={() => setMenuOpen(false)}>Collections</a>
-          <a href="#featured" onClick={() => setMenuOpen(false)}>Shop</a>
-          <a href="#story" onClick={() => setMenuOpen(false)}>Our Story</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        </nav>
-
-        <div className="nav-actions">
-          <button aria-label="Search" className="icon-button">⌕</button>
-          <button aria-label="Shopping bag" className="bag">Bag <span>0</span></button>
-          <button className="menu-button" onClick={() => setMenuOpen((v) => !v)} aria-label="Open menu">
-            <i /><i />
-          </button>
-        </div>
+        <a className="wordmark" href="/" aria-label="Protoflow 3D home"><span>PROTOFLOW</span><b>3D</b></a>
+        <nav className="nav-links"><a href="/collections">Collections</a><a href="/shop">Shop</a><a href="/about">Our Story</a><a href="/contact">Contact</a></nav>
+        <div className="nav-actions"><button aria-label="Search" className="icon-button">⌕</button><a className="bag" href="/cart">Bag <span>0</span></a><button className="menu-button" aria-label="Open menu"><i/><i/></button></div>
       </header>
 
       <section className="hero" ref={stageRef}>
@@ -75,7 +60,7 @@ export default function Home() {
             craftsmanship and character.
           </p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#featured">Explore collection <span>↗</span></a>
+            <a className="button button-dark" href="/shop">Explore collection <span>↗</span></a>
             <a className="text-link" href="#story">Discover our philosophy</a>
           </div>
         </div>
@@ -120,12 +105,12 @@ export default function Home() {
             <p className="eyebrow">01 — COLLECTIONS</p>
             <h2>Find your <em>form.</em></h2>
           </div>
-          <a className="text-link" href="#featured">View all collections ↗</a>
+          <a className="text-link" href="/collections">View all collections ↗</a>
         </div>
 
         <div className="collection-grid">
           {collections.map((item) => (
-            <a className="collection-card" href="#featured" key={item.no}>
+            <a className="collection-card" href={"/collections/" + item.slug} key={item.no}>
               <span className="card-no">{item.no}</span>
               <div className={"abstract-form form-" + item.no}>
                 <span />
@@ -154,29 +139,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="product-row">
-          {featured.map((product, index) => (
-            <article className="product-card" key={product.name}>
-              <div className={"product-visual " + product.shape}>
-                <button className="image-arrow left" aria-label={"Previous image for " + product.name}>‹</button>
-                <div className="mini-sculpture">
-                  <span className="mini-head" />
-                  <span className="mini-body" />
-                  <span className="mini-base" />
-                </div>
-                <button className="image-arrow right" aria-label={"Next image for " + product.name}>›</button>
-                <span className="product-index">0{index + 1}</span>
-              </div>
-              <div className="product-meta">
-                <div>
-                  <h3>{product.name}</h3>
-                  <p>{product.type}</p>
-                </div>
-                <strong>{product.price}</strong>
-              </div>
-            </article>
+        <div className="product-row homepage-product-row">
+          {products.filter((product) => product.featured).slice(0, 6).map((product) => (
+            <ProductCard key={product.slug} product={product} />
           ))}
-        </div>
+        </div>        </div>
       </section>
 
       <section className="experience" id="story">
@@ -193,7 +160,7 @@ export default function Home() {
             piece before it reaches your space—with immersive 3D viewing,
             cinematic transitions and a collection that feels like a gallery.
           </p>
-          <a className="button button-outline" href="#featured">Enter the collection <span>↗</span></a>
+          <a className="button button-outline" href="/shop">Enter the collection <span>↗</span></a>
         </div>
       </section>
 

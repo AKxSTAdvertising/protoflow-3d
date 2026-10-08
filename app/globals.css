@@ -399,3 +399,7 @@ button { font: inherit; color: inherit; }
  .immersive-enter{right:6vw;bottom:8%;padding:15px 16px}
  .immersive-scroll{left:6vw;bottom:9%}
 }
+
+/* Immersive homepage header */
+.home-new>.nav{background:#070706;color:#eee8df;border-bottom-color:#ffffff18}
+.home-new>.nav .wordmark b{border-color:#eee8df}.home-new>.nav .nav-links a:after{background:#eee8df}.home-new>.nav .bag span{border-color:#eee8df}.home-new>.nav .menu-button i{background:#eee8df}.home-new>.nav .icon-button{color:#eee8df}

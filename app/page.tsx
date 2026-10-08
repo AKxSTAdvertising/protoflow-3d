@@ -1,182 +1,140 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import SiteHeader from "@/components/site-header";
 import ProductCard from "@/components/product-card";
 import { products } from "@/lib/store";
 
 const collections = [
-  { slug: "divine-forms", no: "01", name: "Divine Forms", desc: "Sacred sculptures with quiet presence." },
-  { slug: "buddha", no: "02", name: "Buddha", desc: "Stillness, balance and contemplative form." },
-  { slug: "modern-art", no: "03", name: "Modern Art", desc: "Sculptural pieces for contemporary spaces." },
-  { slug: "home-decor", no: "04", name: "Home Décor", desc: "Objects designed to become focal points." },
+  { no: "01", slug: "divine-forms", name: "Divine Forms", line: "Sacred silhouettes. Quiet power.", art: "collection-art divine" },
+  { no: "02", slug: "buddha", name: "Buddha", line: "Stillness, balance, presence.", art: "collection-art buddha" },
+  { no: "03", slug: "modern-art", name: "Modern Art", line: "Geometry with a human pulse.", art: "collection-art modern" },
+  { no: "04", slug: "home-decor", name: "Home Décor", line: "Objects that anchor a room.", art: "collection-art decor" },
 ];
 
-
-
 export default function Home() {
-  const stageRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const node = stageRef.current;
-    if (!node) return;
-
-    const onMove = (event: MouseEvent) => {
-      const x = (event.clientX / window.innerWidth - 0.5) * 2;
-      const y = (event.clientY / window.innerHeight - 0.5) * 2;
-      node.style.setProperty("--mx", x.toFixed(3));
-      node.style.setProperty("--my", y.toFixed(3));
+    const onMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - .5) * 2;
+      const y = (e.clientY / window.innerHeight - .5) * 2;
+      heroRef.current?.style.setProperty("--mx", x.toFixed(3));
+      heroRef.current?.style.setProperty("--my", y.toFixed(3));
     };
-
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
+  const featured = products.filter((p) => p.featured).slice(0, 6);
+
   return (
-    <main>
-      <div className="announcement">HAND-FINISHED FORMS · MADE TO STAY</div>
+    <main className="home-new">
+      <SiteHeader />
 
-      <header className="nav">
-        <a className="wordmark" href="/" aria-label="Protoflow 3D home"><span>PROTOFLOW</span><b>3D</b></a>
-        <nav className="nav-links"><a href="/collections">Collections</a><a href="/shop">Shop</a><a href="/about">Our Story</a><a href="/contact">Contact</a></nav>
-        <div className="nav-actions"><button aria-label="Search" className="icon-button">⌕</button><a className="bag" href="/cart">Bag <span>0</span></a><button className="menu-button" aria-label="Open menu"><i/><i/></button></div>
-      </header>
+      <section className="luxury-hero" ref={heroRef}>
+        <div className="hero-grain" />
+        <div className="hero-side-label">PROTOFLOW / 001 — OBJECTS OF PRESENCE</div>
+        <div className="hero-index">01<br /><span>/</span><br />04</div>
 
-      <section className="hero" ref={stageRef}>
-        <div className="hero-copy">
-          <p className="eyebrow">THE ART OF FORM</p>
-          <h1>
-            Objects with
-            <em>presence.</em>
-          </h1>
-          <p className="hero-text">
-            Sculptural pieces shaped for spaces that value stillness,
-            craftsmanship and character.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-dark" href="/shop">Explore collection <span>↗</span></a>
-            <a className="text-link" href="#story">Discover our philosophy</a>
-          </div>
+        <div className="hero-editorial">
+          <p className="hero-kicker">THE SCULPTURE EDIT · 2026</p>
+          <h1>Objects<br /><i>of devotion.</i></h1>
+          <p className="hero-lead">Sculptural forms for spaces that deserve more than decoration.</p>
+          <a className="hero-cta" href="/collections">
+            <span>Enter the collection</span><b>↗</b>
+          </a>
         </div>
 
-        <div className="hero-stage" aria-label="Protoflow sculpture showroom">
-          <div className="halo" />
-          <div className="stage-number">01 / 04</div>
-          <div className="sculpture sculpture-hero">
-            <div className="sculpture-head" />
-            <div className="sculpture-body" />
-            <div className="sculpture-base" />
+        <div className="hero-object">
+          <div className="object-light" />
+          <div className="hero-sculpture">
+            <div className="hs-head" />
+            <div className="hs-neck" />
+            <div className="hs-body" />
+            <div className="hs-base" />
           </div>
-          <div className="stage-plinth" />
-          <div className="stage-caption">
-            <span>Featured form</span>
+          <div className="hero-pedestal" />
+          <div className="hero-object-caption">
+            <span>01 / FEATURED FORM</span>
             <strong>The Meditative One</strong>
           </div>
         </div>
 
-        <div className="hero-note">
-          <span>Scroll to explore</span>
-          <i>↓</i>
+        <div className="hero-bottom">
+          <span>HAND-FINISHED FORMS</span>
+          <span>SCROLL TO EXPLORE ↓</span>
+          <span>MADE TO STAY</span>
         </div>
       </section>
 
-      <section className="manifesto">
-        <p className="eyebrow">PROTOFLOW 3D</p>
-        <h2>
-          Not decoration.
-          <br />
-          <em>A feeling in form.</em>
-        </h2>
-        <p>
-          We bring together digital precision and the warmth of sculptural
-          craft to create objects that change the character of a room.
-        </p>
+      <section className="statement-section">
+        <div className="statement-number">02</div>
+        <div>
+          <p className="micro-label">THE PROTOFLOW POINT OF VIEW</p>
+          <h2>A room changes<br />when an object has <i>presence.</i></h2>
+        </div>
+        <p className="statement-copy">We curate sculptural objects where devotion, craft and contemporary form meet. Every piece is selected to be lived with—not simply looked at.</p>
       </section>
 
-      <section className="collection-section" id="collections">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">01 — COLLECTIONS</p>
-            <h2>Find your <em>form.</em></h2>
-          </div>
-          <a className="text-link" href="/collections">View all collections ↗</a>
+      <section className="collection-editorial">
+        <div className="editorial-heading">
+          <div><p className="micro-label">03 / COLLECTIONS</p><h2>Four ways<br />to <i>feel form.</i></h2></div>
+          <a href="/collections">View all collections <span>↗</span></a>
         </div>
-
-        <div className="collection-grid">
-          {collections.map((item) => (
-            <a className="collection-card" href={"/collections/" + item.slug} key={item.no}>
-              <span className="card-no">{item.no}</span>
-              <div className={"abstract-form form-" + item.no}>
-                <span />
-                <span />
-                <span />
+        <div className="collection-wall">
+          {collections.map((c) => (
+            <a className="gallery-tile" href={"/collections/" + c.slug} key={c.slug}>
+              <div className={"gallery-art " + c.art}>
+                <span className="gallery-art-glow" />
+                <span className="gallery-shape one" />
+                <span className="gallery-shape two" />
               </div>
-              <div className="collection-info">
-                <h3>{item.name}</h3>
-                <p>{item.desc}</p>
-                <span className="arrow">↗</span>
+              <div className="tile-meta">
+                <span>{c.no}</span>
+                <div><h3>{c.name}</h3><p>{c.line}</p></div>
+                <b>↗</b>
               </div>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="featured-section" id="featured">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">02 — THE EDIT</p>
-            <h2>Pieces worth <em>keeping.</em></h2>
-          </div>
-          <div className="carousel-controls">
-            <button aria-label="Previous products">←</button>
-            <button aria-label="Next products">→</button>
-          </div>
+      <section className="edit-section">
+        <div className="editorial-heading">
+          <div><p className="micro-label">04 / THE EDIT</p><h2>Pieces worth<br /><i>keeping.</i></h2></div>
+          <div className="edit-arrows"><button aria-label="Previous">←</button><button aria-label="Next">→</button></div>
         </div>
-
         <div className="product-row homepage-product-row">
-          {products.filter((product) => product.featured).slice(0, 6).map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
+          {featured.map((product) => <ProductCard key={product.slug} product={product} />)}
         </div>
       </section>
 
-      <section className="experience" id="story">
-        <div className="experience-visual">
-          <div className="experience-orb" />
-          <div className="experience-lines" />
-          <span>CRAFT / FORM / LIGHT</span>
+      <section className="experience-new">
+        <div className="experience-image">
+          <div className="experience-sculpture">
+            <div className="es-head" /><div className="es-body" /><div className="es-base" />
+          </div>
+          <span>TURN IT. STUDY IT. LIVE WITH IT.</span>
         </div>
-        <div className="experience-copy">
-          <p className="eyebrow">03 — THE EXPERIENCE</p>
-          <h2>See it. Turn it. <em>Feel it.</em></h2>
-          <p>
-            Protoflow is built for a closer look. Explore every angle of a
-            piece before it reaches your space—with immersive 3D viewing,
-            cinematic transitions and a collection that feels like a gallery.
-          </p>
-          <a className="button button-outline" href="/shop">Enter the collection <span>↗</span></a>
+        <div className="experience-text">
+          <p className="micro-label">05 / THE PROTOFLOW EXPERIENCE</p>
+          <h2>Closer than<br /><i>the showroom.</i></h2>
+          <p>Explore every angle before the piece enters your space. Interactive 3D, cinematic movement and an editorial approach to buying sculpture.</p>
+          <a href="/shop" className="line-cta">Explore the shop <b>↗</b></a>
         </div>
       </section>
 
-      <section className="closing" id="contact">
-        <p className="eyebrow">MADE FOR YOUR SPACE</p>
-        <h2>Let the room<br /><em>remember it.</em></h2>
-        <a className="button button-light" href="mailto:hello@protoflow3d.com">Start a conversation <span>↗</span></a>
+      <section className="final-cta">
+        <p className="micro-label">06 / YOUR SPACE</p>
+        <h2>Let the room<br /><i>remember it.</i></h2>
+        <a href="/contact">Start a conversation <span>↗</span></a>
       </section>
 
       <footer className="footer">
-        <div className="footer-brand">
-          <span className="wordmark"><span>PROTOFLOW</span><b>3D</b></span>
-          <p>Sculptural objects for considered spaces.</p>
-        </div>
-        <div className="footer-links">
-          <div><span>Explore</span><a href="#collections">Collections</a><a href="#featured">Shop</a><a href="#story">Our Story</a></div>
-          <div><span>Help</span><a href="#contact">Contact</a><a href="#contact">Shipping</a><a href="#contact">Returns</a></div>
-          <div><span>Follow</span><a href="#contact">Instagram</a><a href="#contact">Pinterest</a></div>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 Protoflow 3D</span>
-          <span>Crafted with intention.</span>
-        </div>
+        <div className="footer-brand"><span className="wordmark"><span>PROTOFLOW</span><b>3D</b></span><p>Sculptural objects for considered spaces.</p></div>
+        <div className="footer-links"><div><span>Explore</span><a href="/collections">Collections</a><a href="/shop">Shop</a><a href="/about">Our Story</a></div><div><span>Studio</span><a href="/contact">Contact</a><a href="/contact">Shipping</a><a href="/contact">Returns</a></div><div><span>Social</span><a href="/contact">Instagram</a><a href="/contact">Pinterest</a></div></div>
+        <div className="footer-bottom"><span>© 2026 PROTOFLOW 3D</span><span>Crafted with intention.</span></div>
       </footer>
     </main>
   );

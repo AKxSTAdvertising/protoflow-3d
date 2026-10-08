@@ -28,3 +28,15 @@ export const money=(v:number)=>new Intl.NumberFormat("en-IN",{style:"currency",c
 export const priceForSize=(p:Product,s:number)=>p.price+Math.max(0,s-p.sizes[0])*p.perInch;
 export const getCollection=(slug:string)=>collections.find(x=>x.slug===slug);
 export const getProduct=(slug:string)=>products.find(x=>x.slug===slug);
+
+export const productBySlug=Object.fromEntries(products.map(product=>[product.slug,product]));
+export const productsByCollection=(slug:string)=>products.filter(product=>product.collection===slug);
+export const featuredProducts=()=>products.filter(product=>product.featured);
+export const newArrivals=()=>products.filter(product=>product.newArrival);
+export const bestSellers=()=>products.filter(product=>product.bestSeller);
+export const catalogStats={
+ total:products.length,
+ collections:collections.length,
+ priceFrom:Math.min(...products.map(p=>p.price)),
+ priceTo:Math.max(...products.map(p=>p.price))
+};

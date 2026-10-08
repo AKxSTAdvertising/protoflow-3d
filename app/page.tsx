@@ -1,63 +1,30 @@
 "use client";
 
-
 import SiteHeader from "@/components/site-header";
 import ProductCard from "@/components/product-card";
 import ImmersiveHero from "@/components/immersive-hero";
+import ImmersiveShowcase from "@/components/immersive-showcase";
 import { products } from "@/lib/store";
 
-const collections = [
-  { no: "01", slug: "divine-forms", name: "Divine Forms", line: "Sacred silhouettes. Quiet power.", art: "collection-art divine" },
-  { no: "02", slug: "buddha", name: "Buddha", line: "Stillness, balance, presence.", art: "collection-art buddha" },
-  { no: "03", slug: "modern-art", name: "Modern Art", line: "Geometry with a human pulse.", art: "collection-art modern" },
-  { no: "04", slug: "home-decor", name: "Home Décor", line: "Objects that anchor a room.", art: "collection-art decor" },
-];
-
 export default function Home() {
-  const featured = products.filter((p) => p.featured).slice(0, 6);
-
+  const featured = products.slice(0, 6);
   return (
     <main className="home-new">
       <SiteHeader />
-
       <ImmersiveHero />
 
       <section className="statement-section">
         <div className="statement-number">02</div>
-        <div>
-          <p className="micro-label">THE PROTOFLOW POINT OF VIEW</p>
-          <h2>A room changes<br />when an object has <i>presence.</i></h2>
-        </div>
-        <p className="statement-copy">We curate sculptural objects where devotion, craft and contemporary form meet. Every piece is selected to be lived with—not simply looked at.</p>
+        <div><p className="micro-label">THE PROTOFLOW POINT OF VIEW</p><h2>Objects made to<br />hold <i>attention.</i></h2></div>
+        <p className="statement-copy">Real pieces. Real photographs. One cinematic catalogue built around the objects themselves—not generic stock imagery.</p>
       </section>
 
-      <section className="collection-editorial">
-        <div className="editorial-heading">
-          <div><p className="micro-label">03 / COLLECTIONS</p><h2>Four ways<br />to <i>feel form.</i></h2></div>
-          <a href="/collections">View all collections <span>↗</span></a>
-        </div>
-        <div className="collection-wall">
-          {collections.map((c) => (
-            <a className="gallery-tile" href={"/collections/" + c.slug} key={c.slug}>
-              <div className={"gallery-art " + c.art}>
-                <span className="gallery-art-glow" />
-                <span className="gallery-shape one" />
-                <span className="gallery-shape two" />
-              </div>
-              <div className="tile-meta">
-                <span>{c.no}</span>
-                <div><h3>{c.name}</h3><p>{c.line}</p></div>
-                <b>↗</b>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+      <ImmersiveShowcase />
 
-      <section className="edit-section">
+      <section className="edit-section real-catalog">
         <div className="editorial-heading">
-          <div><p className="micro-label">04 / THE EDIT</p><h2>Pieces worth<br /><i>keeping.</i></h2></div>
-          <div className="edit-arrows"><button aria-label="Previous">←</button><button aria-label="Next">→</button></div>
+          <div><p className="micro-label">04 / THE CATALOGUE</p><h2>Your pieces.<br /><i>Up close.</i></h2></div>
+          <a href="/shop">View full catalogue <span>↗</span></a>
         </div>
         <div className="product-row homepage-product-row">
           {featured.map((product) => <ProductCard key={product.slug} product={product} />)}
@@ -66,22 +33,20 @@ export default function Home() {
 
       <section className="experience-new">
         <div className="experience-image">
-          <div className="experience-sculpture">
-            <div className="es-head" /><div className="es-body" /><div className="es-base" />
-          </div>
+          <div className="experience-sculpture"><div className="es-head" /><div className="es-body" /><div className="es-base" /></div>
           <span>TURN IT. STUDY IT. LIVE WITH IT.</span>
         </div>
         <div className="experience-text">
           <p className="micro-label">05 / THE PROTOFLOW EXPERIENCE</p>
           <h2>Closer than<br /><i>the showroom.</i></h2>
-          <p>Explore every angle before the piece enters your space. Interactive 3D, cinematic movement and an editorial approach to buying sculpture.</p>
+          <p>Every catalogue piece opens into a focused product room with size-based pricing, gallery imagery and an interactive viewing experience.</p>
           <a href="/shop" className="line-cta">Explore the shop <b>↗</b></a>
         </div>
       </section>
 
       <section className="final-cta">
         <p className="micro-label">06 / YOUR SPACE</p>
-        <h2>Let the room<br /><i>remember it.</i></h2>
+        <h2>Find the piece<br /><i>that stays.</i></h2>
         <a href="/contact">Start a conversation <span>↗</span></a>
       </section>
 

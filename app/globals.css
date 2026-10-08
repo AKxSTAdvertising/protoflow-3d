@@ -248,3 +248,114 @@ button { font: inherit; color: inherit; }
  .shop-grid{grid-template-columns:1fr}.homepage-product-row{grid-auto-columns:78vw}
  .wordmark span{font-size:16px}.bag{font-size:10px}.listing-intro h1{font-size:48px}
 }
+
+
+/* =========================================================
+   PROTOFLOW 3D — LUXURY GALLERY HOMEPAGE
+   ========================================================= */
+.home-new{background:#f0ece3;color:#191714;overflow:hidden}
+.home-new .nav{height:88px;background:#f0ece3;border-bottom:1px solid #19171420;position:relative}
+.home-new .announcement{display:none}
+
+.luxury-hero{height:calc(100vh - 88px);min-height:720px;position:relative;background:#e7e1d5;overflow:hidden;isolation:isolate}
+.hero-grain{position:absolute;inset:0;opacity:.16;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
+.hero-side-label{position:absolute;left:25px;top:50%;writing-mode:vertical-rl;transform:rotate(180deg);font:8px "DM Mono";letter-spacing:.16em;color:#696156;z-index:4}
+.hero-index{position:absolute;right:32px;top:42px;text-align:center;font:10px "DM Mono";line-height:1.35;color:#6f675d;z-index:4}
+.hero-index span{opacity:.35}
+.hero-editorial{position:absolute;z-index:5;left:9vw;top:50%;transform:translateY(-48%);width:43%;max-width:620px}
+.hero-kicker,.micro-label{font:9px "DM Mono";letter-spacing:.18em;text-transform:uppercase;color:#6c645a;margin:0 0 25px}
+.hero-editorial h1{font:500 clamp(78px,10vw,154px)/.78 "Playfair Display",serif;letter-spacing:-.07em;margin:0}
+.hero-editorial h1 i,.statement-section h2 i,.editorial-heading h2 i,.experience-text h2 i,.final-cta h2 i{font-weight:500;color:#92764c}
+.hero-lead{font-size:13px;line-height:1.8;max-width:320px;color:#625b52;margin:38px 0 28px}
+.hero-cta{display:inline-flex;align-items:center;gap:38px;padding:16px 18px;background:#191714;color:#f5f0e6;font:9px "DM Mono";letter-spacing:.12em;text-transform:uppercase;transition:transform .3s}
+.hero-cta:hover{transform:translateY(-3px)}
+.hero-cta b{font-size:17px;font-weight:400}
+.hero-object{position:absolute;right:4vw;top:0;width:57%;height:100%;transform:translate3d(calc(var(--mx,0)*-12px),calc(var(--my,0)*-7px),0);transition:transform .45s ease-out}
+.object-light{position:absolute;width:72%;aspect-ratio:1;left:12%;top:10%;border-radius:50%;background:radial-gradient(circle,#faf7f0 0,#d8cfbf 30%,transparent 68%);filter:blur(1px)}
+.hero-sculpture{position:absolute;width:310px;height:540px;left:50%;top:44%;transform:translate(-50%,-50%) rotateY(-8deg);transform-style:preserve-3d;filter:drop-shadow(34px 35px 22px #40372b35);animation:heroFloat 7s ease-in-out infinite}
+.hs-head{position:absolute;width:145px;height:160px;left:83px;top:0;border-radius:48% 48% 45% 45%;background:linear-gradient(105deg,#4f4a43,#d1c5b1 55%,#655e53);box-shadow:inset -12px -10px 18px #3b362f45}
+.hs-neck{position:absolute;width:90px;height:80px;left:110px;top:125px;background:linear-gradient(100deg,#514b43,#b9ae9d,#5d554a);border-radius:35%}
+.hs-body{position:absolute;width:280px;height:345px;left:15px;top:160px;clip-path:polygon(27% 0,73% 0,100% 100%,0 100%);border-radius:40% 40% 14% 14%;background:linear-gradient(102deg,#49443c,#c1b5a3 53%,#514b42);box-shadow:inset -22px -20px 25px #39342d35}
+.hs-base{position:absolute;width:310px;height:62px;bottom:0;border-radius:5px;background:linear-gradient(#918574,#49443c);box-shadow:0 18px 15px #3b342b35}
+.hero-pedestal{position:absolute;left:12%;right:5%;height:16%;bottom:8%;border-radius:50%;background:linear-gradient(#d2c8b8,#a99d8a);transform:rotateX(70deg);box-shadow:0 35px 45px #40382d22}
+.hero-object-caption{position:absolute;right:7%;bottom:15%;display:flex;flex-direction:column;text-align:right;gap:7px}
+.hero-object-caption span{font:8px "DM Mono";letter-spacing:.16em;color:#746b5f}
+.hero-object-caption strong{font:500 20px "Playfair Display";letter-spacing:-.02em}
+.hero-bottom{position:absolute;left:4vw;right:4vw;bottom:25px;display:flex;justify-content:space-between;border-top:1px solid #19171425;padding-top:12px;font:8px "DM Mono";letter-spacing:.16em;color:#71695f;z-index:6}
+@keyframes heroFloat{0%,100%{margin-top:0}50%{margin-top:-13px}}
+
+.statement-section{display:grid;grid-template-columns:12% 55% 33%;padding:145px 9vw 155px;background:#f4f0e8;align-items:end}
+.statement-number{font:9px "DM Mono";color:#897d6e}
+.statement-section h2,.editorial-heading h2,.experience-text h2,.final-cta h2{font:500 clamp(48px,6.2vw,94px)/.91 "Playfair Display";letter-spacing:-.06em;margin:0}
+.statement-copy{max-width:330px;margin:0 0 4px 10%;font-size:12px;line-height:1.9;color:#71695f}
+
+.collection-editorial,.edit-section{padding:125px 5vw 145px;max-width:1600px;margin:auto}
+.editorial-heading{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:55px}
+.editorial-heading>a{font:9px "DM Mono";letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #191714;padding-bottom:6px}
+.editorial-heading>a span{font-size:15px;margin-left:12px}
+.collection-wall{display:grid;grid-template-columns:1.05fr .95fr 1.05fr .95fr;gap:10px}
+.gallery-tile{min-height:570px;background:#ded7c9;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:18px;transition:transform .45s}
+.gallery-tile:nth-child(even){margin-top:65px}
+.gallery-tile:hover{transform:translateY(-8px)}
+.gallery-art{position:absolute;inset:0;overflow:hidden;background:#d5cec0}
+.gallery-art-glow{position:absolute;width:90%;aspect-ratio:1;left:5%;top:5%;border-radius:50%;background:radial-gradient(circle,#f6f1e7,#c7bdad 40%,transparent 70%)}
+.gallery-shape{position:absolute;display:block;background:linear-gradient(105deg,#4d4840,#c6baaa 53%,#5b544a);box-shadow:25px 35px 35px #30291f25}
+.gallery-shape.one{width:145px;height:300px;left:50%;top:22%;transform:translateX(-50%) rotate(-5deg);border-radius:47% 47% 18% 18%}
+.gallery-shape.two{width:210px;height:42px;left:50%;bottom:18%;transform:translateX(-50%);border-radius:50%;background:linear-gradient(#8b806f,#4c463e)}
+.gallery-art.buddha .gallery-shape.one{height:230px;border-radius:50%;top:28%}
+.gallery-art.modern .gallery-shape.one{width:235px;height:95px;border-radius:60% 10%;transform:translateX(-50%) rotate(-28deg)}
+.gallery-art.decor .gallery-shape.one{width:190px;height:190px;border-radius:50%;top:25%}
+.tile-meta{position:relative;z-index:3;display:grid;grid-template-columns:35px 1fr 25px;align-items:end;margin-top:auto;color:#191714}
+.tile-meta>span{font:8px "DM Mono";color:#6e665b}
+.tile-meta h3{font:500 26px "Playfair Display";margin:0 0 4px}
+.tile-meta p{font-size:10px;color:#6e665b;margin:0}
+.tile-meta>b{font:20px Manrope;font-weight:300}
+
+.edit-section{background:#eee8dc;max-width:none}
+.edit-section>.editorial-heading,.edit-section>.homepage-product-row{max-width:1500px;margin-left:auto;margin-right:auto}
+.edit-arrows{display:flex;gap:7px}
+.edit-arrows button{width:43px;height:43px;border:1px solid #19171435;background:transparent;font-size:17px;cursor:pointer;transition:.25s}
+.edit-arrows button:hover{background:#191714;color:#fff}
+.edit-section .homepage-product-row{grid-template-columns:repeat(6,minmax(225px,1fr));overflow-x:auto}
+.edit-section .product-visual{height:440px;background:#ded7ca}
+.edit-section .product-meta h3{font-size:19px}
+
+.experience-new{display:grid;grid-template-columns:1.15fr .85fr;min-height:760px;background:#27231f;color:#eee8dc}
+.experience-image{position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#867762,#39332b 34%,#27231f 68%)}
+.experience-image>span{position:absolute;bottom:30px;left:35px;font:8px "DM Mono";letter-spacing:.16em;color:#aaa092}
+.experience-sculpture{width:300px;height:510px;position:relative;transform:rotate(-8deg);filter:drop-shadow(35px 40px 28px #0008)}
+.es-head{position:absolute;width:135px;height:145px;left:82px;border-radius:50%;background:linear-gradient(105deg,#403a33,#b7a991 53%,#51493e)}
+.es-body{position:absolute;width:270px;height:330px;left:15px;top:125px;clip-path:polygon(27% 0,73% 0,100% 100%,0 100%);background:linear-gradient(105deg,#403a33,#a99b84 53%,#4b443b)}
+.es-base{position:absolute;width:300px;height:58px;bottom:0;background:linear-gradient(#857865,#3d3932);border-radius:4px}
+.experience-text{padding:100px 10vw 100px 7vw;align-self:center}
+.experience-text .micro-label{color:#a69b8b}
+.experience-text h2{max-width:500px}
+.experience-text>p:not(.micro-label){max-width:410px;color:#aaa093;font-size:13px;line-height:1.9;margin:35px 0}
+.line-cta{display:inline-flex;gap:28px;align-items:center;border-bottom:1px solid #d9d0c1;padding-bottom:8px;font:9px "DM Mono";letter-spacing:.13em;text-transform:uppercase}
+.line-cta b{font-size:15px;font-weight:400}
+
+.final-cta{padding:160px 8vw;text-align:center;background:#e7e0d4}
+.final-cta h2{font-size:clamp(65px,9vw,135px);margin-bottom:50px}
+.final-cta>a{display:inline-flex;gap:35px;align-items:center;background:#191714;color:#f3eee4;padding:17px 20px;font:9px "DM Mono";letter-spacing:.12em;text-transform:uppercase}
+.final-cta>a span{font-size:16px}
+
+@media(max-width:900px){
+ .luxury-hero{height:auto;min-height:900px}.hero-editorial{left:8vw;top:100px;transform:none;width:75%}.hero-editorial h1{font-size:clamp(70px,13vw,110px)}
+ .hero-object{top:270px;width:100%;right:0;height:620px}.hero-sculpture{transform:translate(-50%,-50%) scale(.82) rotateY(-8deg)}.hero-bottom{bottom:18px}
+ .statement-section{grid-template-columns:1fr;padding:100px 8vw;gap:35px}.statement-copy{margin:0}
+ .collection-wall{grid-template-columns:1fr 1fr}.gallery-tile{min-height:500px}.gallery-tile:nth-child(even){margin-top:35px}
+ .experience-new{grid-template-columns:1fr}.experience-image{min-height:600px}
+}
+@media(max-width:560px){
+ .home-new .nav{height:76px}.luxury-hero{min-height:850px}
+ .hero-side-label,.hero-index{display:none}.hero-editorial{top:65px;left:7vw;width:86%}.hero-editorial h1{font-size:72px}.hero-lead{margin:28px 0 23px}
+ .hero-object{top:245px;height:560px}.hero-sculpture{transform:translate(-50%,-50%) scale(.64)}.hero-object-caption{right:5%;bottom:9%}.hero-object-caption strong{font-size:16px}.hero-pedestal{bottom:4%}
+ .hero-bottom{left:5vw;right:5vw;font-size:7px}.hero-bottom span:nth-child(2){display:none}
+ .statement-section{padding:85px 7vw}.statement-section h2{font-size:48px}
+ .collection-editorial,.edit-section{padding:85px 5vw}.editorial-heading{align-items:flex-start;flex-direction:column;gap:25px}.editorial-heading h2{font-size:51px}
+ .collection-wall{grid-template-columns:1fr}.gallery-tile{min-height:470px}.gallery-tile:nth-child(even){margin-top:0}
+ .edit-section .homepage-product-row{grid-template-columns:repeat(6,78vw)}
+ .experience-image{min-height:510px}.experience-sculpture{transform:scale(.75) rotate(-8deg)}
+ .experience-text{padding:75px 8vw}.experience-text h2{font-size:55px}
+ .final-cta{padding:110px 6vw}.final-cta h2{font-size:67px}
+}

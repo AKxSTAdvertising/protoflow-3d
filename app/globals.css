@@ -428,3 +428,51 @@ html:has(.cinematic-page),body:has(.cinematic-page){overflow:hidden}.cinematic-p
 .cinematic-orbit{border-color:#d2a96b25;box-shadow:0 0 120px rgba(210,169,107,.08),inset 0 0 100px rgba(210,169,107,.055)}
 .cinematic-vignette{background:radial-gradient(circle at 57% 48%,transparent 8%,rgba(0,0,0,.16) 43%,rgba(0,0,0,.9) 100%)}
 @media(max-width:760px){.cinematic-copy{width:88vw}.cinematic-copy h1{-webkit-text-stroke:.6px rgba(255,255,255,.15)}}
+
+
+/* Reference composition refinement: temple showroom, editorial type, violet controls */
+.cinematic-page>.announcement{height:28px;background:#100d0b;color:#b6a58e;border-bottom:1px solid rgba(214,177,118,.12);font-size:8px;letter-spacing:.22em}
+.cinematic-page>.nav{height:60px;padding:0 3vw;background:rgba(12,10,9,.94);border-bottom:1px solid rgba(214,177,118,.14);backdrop-filter:blur(18px)}
+.cinematic-page>.nav .wordmark{font-size:12px;letter-spacing:.16em}
+.cinematic-page>.nav .wordmark:before{content:"P";display:grid;place-items:center;width:20px;height:22px;color:#a879ff;font:900 22px/1 Arial,sans-serif;letter-spacing:-.1em;text-shadow:0 0 18px #8b5cf688}
+.cinematic-page>.nav .wordmark b{border:0;padding:0;color:#a879ff;font-size:10px}
+.cinematic-page>.nav .nav-links{gap:clamp(18px,3vw,42px);margin-left:0}
+.cinematic-page>.nav .nav-links a,.cinematic-page>.nav .bag{font-size:9px;letter-spacing:.08em}
+.cinematic-page>.nav .nav-links a:after{bottom:-22px;height:2px;background:#9a63ff}
+.cinematic-page>.nav .nav-links a:hover{color:#c2a3ff}
+.cinematic-page>.nav .nav-actions{gap:15px}
+.cinematic-page>.nav .icon-button{font-size:22px;color:#c7beb2}
+.cinematic-page>.nav .bag span{border-color:#8e64d8;color:#d4c0ff}
+.cinematic-home{height:calc(100svh - 88px);min-height:540px;background:#100b08}
+.cinematic-copy{left:5.2vw;top:49%;width:min(620px,48vw)}
+.cinematic-copy>p{display:flex;align-items:center;gap:12px;color:#d0ac75;font-size:8px;letter-spacing:.2em;margin-bottom:22px}
+.cinematic-copy>p:before{content:"";display:inline-block;width:24px;height:1px;background:#b18b58}
+.cinematic-copy h1{font-size:clamp(58px,7.1vw,108px);line-height:.88;letter-spacing:-.055em;-webkit-text-stroke:.4px rgba(255,255,255,.16);mix-blend-mode:normal}
+.cinematic-copy h1 i{display:inline-block;margin-top:8px;color:#d4b17b;text-shadow:0 4px 32px #bd8b4b24}
+.cinematic-copy>span{max-width:340px;margin:27px 0 24px;color:#c0b5a7;font-size:11px;line-height:1.8}
+.cinematic-copy>a{gap:24px;padding:14px 18px;border:1px solid #a27aff;background:linear-gradient(110deg,#9862f5,#7544d9);box-shadow:0 8px 32px #6f39d52b;color:#fff;font-size:8px;letter-spacing:.12em}
+.cinematic-copy>a:hover{background:#b194ff;border-color:#b194ff;color:#160e24}
+.cinematic-orbit{left:60%;width:min(61vw,790px);border-color:#d2a96b1f}
+.cinematic-glow{left:59%;background:radial-gradient(circle,#e2a95124 0%,#b2783410 35%,transparent 70%)}
+.cinematic-vignette{background:radial-gradient(ellipse at 60% 48%,transparent 8%,rgba(0,0,0,.08) 35%,rgba(0,0,0,.65) 100%)}
+.cinematic-vignette:after{background:linear-gradient(90deg,#0b0806 0%,rgba(10,7,5,.76) 24%,transparent 47%,transparent 75%,rgba(10,7,5,.5) 100%);opacity:.9}
+.cinematic-progress{top:20px;color:#c6b9a8}
+.cinematic-progress-lines button.is-active{background:#9c69ff}
+.cinematic-arrows button{border-color:#8c79654a;border-radius:50%;background:#120e0bcc}
+.cinematic-arrows button:hover:not(:disabled){background:#9661ed;border-color:#9661ed;color:#fff}
+.cinematic-side{right:3vw;color:#b3a18a}
+.cinematic-hint{left:3vw;color:#a89986}
+@media(max-width:760px){
+ .cinematic-page>.announcement{height:24px;font-size:7px}
+ .cinematic-page>.nav{height:60px;padding:0 5vw}
+ .cinematic-page>.nav .nav-links{background:#100d0b;border:1px solid #ffffff18}
+ .cinematic-home{height:calc(100svh - 84px);min-height:540px}
+ .cinematic-copy{left:6vw;top:24%;width:88%}
+ .cinematic-copy h1{font-size:clamp(48px,12vw,76px);line-height:.9}
+ .cinematic-copy>span{max-width:280px;font-size:10px;margin:18px 0}
+ .cinematic-copy>a{padding:13px 14px;gap:18px}
+ .cinematic-orbit{width:145vw;left:60%;top:64%}
+ .cinematic-glow{width:140vw;height:140vw;left:60%;top:64%}
+ .cinematic-arrows{bottom:5%}
+ .cinematic-hint{bottom:6%}
+}
